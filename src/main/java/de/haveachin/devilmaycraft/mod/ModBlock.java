@@ -10,7 +10,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class ModBlock extends Block implements IHasModel
+public abstract class ModBlock extends Block implements IHasModel
 {
 	public ModBlock(String name, Material material, CreativeTabs creativeTab)
 	{
