@@ -1,1 +1,5 @@
-item.soul_dagger.name=Soul Dagger
+// Items
+item.test_item.name=Test Item
+
+// Blocks
+tile.test_block.name=Test Block
