@@ -4,10 +4,15 @@
 # Recursively allow files under subtree
 !/.git/
 !/src/
+!/gradle/
+
 
 # Allow these files
 !.gitignore
 !LICENSE
-!mcsetupenv.exe
 !README.md
-!startup.bat
+!IDEA.md
+!build.gradle
+!gradle.properties
+!gradlew
+!gradlew.bat
