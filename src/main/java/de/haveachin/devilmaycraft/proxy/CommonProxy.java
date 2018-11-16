@@ -1,6 +1,6 @@
 package de.haveachin.devilmaycraft.proxy;
 
-import de.haveachin.devilmaycraft.mod.ModItem;
+import de.haveachin.devilmaycraft.mod.BaseItem;
 import net.minecraft.item.Item;
 
 public class CommonProxy

@@ -2,10 +2,10 @@ package de.haveachin.devilmaycraft.util.handlers;
 
 import java.util.List;
 
-import de.haveachin.devilmaycraft.init.Blocks;
-import de.haveachin.devilmaycraft.init.Items;
-import de.haveachin.devilmaycraft.mod.ModBlock;
-import de.haveachin.devilmaycraft.mod.ModItem;
+import de.haveachin.devilmaycraft.init.ModBlocks;
+import de.haveachin.devilmaycraft.init.ModItems;
+import de.haveachin.devilmaycraft.mod.BaseBlock;
+import de.haveachin.devilmaycraft.mod.BaseItem;
 import de.haveachin.devilmaycraft.util.IHasModel;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
@@ -20,29 +20,35 @@ public class RegistryHandler
 	@SubscribeEvent
 	public static void onItemRegistry(RegistryEvent.Register<Item> e)
 	{
-		e.getRegistry().registerAll(Items.ITEMS.toArray(new Item[0]));
+		e.getRegistry().registerAll(ModItems.ITEMS.toArray(new Item[0]));
 	}
 	
 	@SubscribeEvent
 	public static void onBlockRegistry(RegistryEvent.Register<Block> e)
 	{
-		e.getRegistry().registerAll(Blocks.BLOCKS.toArray(new Block[0]));
+		e.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
+	}
+	
+	@SubscribeEvent
+	public static void onBlockRedfgistry()
+	{
+		e.getRegistry().registerAll(ModBlocks.BLOCKS.toArray(new Block[0]));
 	}
 	
 	@SubscribeEvent
 	public static void onModelRegistry(ModelRegistryEvent e)
 	{
-		registerModel(Items.ITEMS);
-		registerModel(Blocks.BLOCKS);
+		registerModel(ModItems.ITEMS);
+		registerModel(ModBlocks.BLOCKS);
 	}
 	
-	private static <T> void registerModel(List<T> entities)
+	private static <T> void registerModel(List<T> objects)
 	{
-		for (T entity : entities)
+		for (T object : objects)
 		{
-			if (entity instanceof IHasModel)
+			if (object instanceof IHasModel)
 			{
-				((IHasModel) entity).registerModels();
+				((IHasModel) object).registerModels();
 			}
 		}
 	}

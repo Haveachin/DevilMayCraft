@@ -1,5 +1,7 @@
 package de.haveachin.devilmaycraft;
 
+import org.apache.logging.log4j.Logger;
+
 import de.haveachin.devilmaycraft.proxy.CommonProxy;
 import de.haveachin.devilmaycraft.util.Reference;
 import net.minecraftforge.fml.common.Mod;
@@ -13,18 +15,23 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 @Mod(modid = Reference.MOD_ID, name = Reference.NAME, version = Reference.VERSION)
 public class Main
 {
-	@Instance
+	@Mod.Instance
 	public static Main instance;
 	
 	@SidedProxy(clientSide = Reference.CLIENT_PROXY_CLASS, serverSide = Reference.COMMON_PROXY_CLASS)
 	public static CommonProxy proxy;
 	
-	@EventHandler
-	public static void PreInit(FMLPreInitializationEvent e) { }
+	public static Logger logger;
 	
-	@EventHandler
-	public static void Init(FMLInitializationEvent e) { }
+	@Mod.EventHandler
+	public static void preInit(FMLPreInitializationEvent e)
+	{
+		logger = e.getModLog();
+	}
 	
-	@EventHandler
-	public static void PostInit(FMLPostInitializationEvent e) { }
+	@Mod.EventHandler
+	public static void init(FMLInitializationEvent e) { }
+	
+	@Mod.EventHandler
+	public static void postInit(FMLPostInitializationEvent e) { }
 }
